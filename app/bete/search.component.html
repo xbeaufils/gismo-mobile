@@ -1,0 +1,15 @@
+<ActionBar title="Recherche" class="action-bar">
+    <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+ <ActionItem text="Recherche" (tap)="search()" ios.position="right"></ActionItem>   
+</ActionBar>
+<StackLayout>
+  <label [text]="num_cheptel"></label>
+  <StackLayout class="hr-light m-10"></StackLayout>
+  <GridLayout rows="auto, auto,auto, *" columns="250, *">
+      <Label text="Numero Cheptel"></Label>
+      <TextField class="input input-border"  [(ngModel)]="cheptel" autocorrect="false" hint="Numero cheptel" returnKeyType="next" col="1"></TextField>
+      <Label text="Boucle" row="1"></Label>
+      <TextField class="input input-border" [(ngModel)]="boucle" autocorrect="false" hint="Numero boucle" returnKeyType="search" row="1" col="1"></TextField>
+      <Button class="form-component-input-con-button" col="0" row="2" text="Log In"></Button>
+  </GridLayout>
+</StackLayout>
