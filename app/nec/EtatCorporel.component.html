@@ -1,0 +1,29 @@
+<ActionBar title="Gismo" class="action-bar">
+    <StackLayout horizontalAlignment="center" verticalAlignment="center" orientation="horizontal">
+        <TextField class="input input-border"  [(ngModel)]="num_boucle" autocorrect="false" hint="Numero Boucle" returnKeyType="next" (returnPress)="search()"></TextField>
+    </StackLayout>
+    <ActionItem text="Recherche" (tap)="search()" ios.position="right"></ActionItem>
+</ActionBar>
+<StackLayout orientation="vertical">
+    <StackLayout horizontalAlignment="center" verticalAlignment="center" orientation="horizontal">
+        <ListView [items]="boucles" class="list-group">
+            <ng-template let-boucle="item" let-i="index" >
+                <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+                <StackLayout orientation="horizontal" class="list-group-item">
+                    <Label [text]="boucle.numero_boucle"></Label>
+                </StackLayout>
+            </ng-template>
+        </ListView> 
+        <Label text="Numero de boucle"></Label>
+        <TextField onsubmit="" class="input input-border"  [(ngModel)]="num_boucle" autocorrect="false" hint="Numero Boucle" returnKeyType="next" col="1"></TextField>
+    </StackLayout>
+    <StackLayout horizontalAlignment="center" verticalAlignment="center" orientation="horizontal">
+        <Label text="Date de note"></Label>
+        <DatePicker #datePickerID [year]="dtyear" [month]="dtmonth" [day]="dtday" verticalAlignment="center" horizontalAlignment="center"></DatePicker>
+    </StackLayout>
+    <StackLayout orientation="horizontal" horizontalAlignment="center" verticalAlignment="center" marginTop="12">
+        <Button text="Save" (tap)="close('Save')"></Button>
+        <Button text="Cancel" (tap)="close('Cancel')"></Button>
+    </StackLayout>
+ 
+</StackLayout>
